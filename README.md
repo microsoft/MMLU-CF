@@ -3,40 +3,54 @@ MMLU-CF is a contamination-free and more challenging multiple-choice question be
 
 [Paper](arxiv.com) | [Github](https://github.com/microsoft/MMLU-CF) | [Datasets](https://huggingface.co/datasets/microsoft/MMLU-CF)
 
-## 1. The Contribution of MMLU-CF.
+## 1. The Motivation of MMLU-CF.
+- The open-source nature of these benchmarks and the broad sources of training data for LLMs have inevitably led to benchmark contamination, resulting in unreliable evaluation results. To alleviate this issue, we propose MMLU-CF.
+- (a) An instance of leakage in MMLU. When questions are used as prompt from the MMLU, certain LLMs, due to their memorization capabilities, directly provide **choices identical to the original ones**. (b) When questions are used as prompt from the MMLU-CF, LLMs only provide guessed choices.
+This indicates that the MMLU test set suffers from data contamination and memorization by some LLMs, while the proposed MMLU-CF avoids such leakage.
+<p float="center">
+  <img src="./Figures/Fig_1_a.png" alt="Fig1_a" width="45%" />
+  <img src="./Figures/Fig_1_b.png" alt="Fig1_b" width="45%" />
+</p>
 
- - The open-source nature of these benchmarks and the broad sources of training data for LLMs have inevitably led to benchmark contamination, resulting in unreliable evaluation results. To alleviate this issue, we propose MMLU-CF.
+## 2. The Contribution of MMLU-CF.
+
  - To avoid unintentional data leakage, we source data from a broader domain and design three decontamination rules.
  - To prevent malicious data leakage, we divide the benchmark into validation and test sets with similar difficulty and subject distributions.The test set remains closed-source to ensure reliable results, while the validation set is publicly available to promote transparency and facilitate independent verification.
  - Our evaluation of mainstream LLMs reveals that the powerful GPT-4o achieves merely a 5-shot score of 73.4\% and a 0-shot score of 71.9\% on the test set, which indicates the effectiveness of our approach in creating a more rigorous and contamination-free evaluation standard.
    
-[Fig2]()
+<p>
+  <img src="./Figures/Fig_2.png" alt="Fig2" width="90%" style="display: block; margin: 0 auto;" />
+</p>
 
+## 3. How to Evaluate Your Models on the MMLU-CF Validation/Test set?
 
-## 2. How to Evaluate Your Models on the MMLU-CF Validation/Test set?
-
-#### (1) For Huggingface models, following the steps outlined below and obtaining the validation set results, the test set results can then be accessed via GitHub Issues. 
+We perform automated testing only on Huggingface models. After following the steps outlined below and obtaining the validation set results, the test set results can then be accessed via GitHub Issues. 
   1. **Validation Set Evaluation**: Obtaining the validation results for your model using LLM evaluation tools, [OpenCompass](https://github.com/open-compass/opencompass). We have already added **MMLU-CF** to [OpenCompass](https://github.com/open-compass/opencompass) for this purpose.
   2. **Test Set Evaluation**: With the validation results, submit a GitHub issue on the [MMLU-CF](https://github.com/) GitHub homepage to request the test set results. Please follow the format below:
-Example:
+Example,
 ```
 Title: 
-Test Request - add HF model [meta-llama/Llama-3.2-1B]
-
-Content:
+Test Request - add HF model [meta-llama/Llama-3.2-1B]  
+Content: 
 Result on validation results: 68.5%
 ```
   **Notably**:
    - Ensure you use the format with square brackets `[ ]` as shown. The model name **meta-llama/Llama-3.2-1B** corresponds to the name on HuggingFace.
    - We will automatically submit your model. The time to receive the results depends on the number of models being evaluated, but it typically takes **1-2 weeks**.
 
-#### (2) For API models, if [OpenCompass](https://github.com/open-compass/opencompass) updates the model interface, you can obtain the test set results by sending a temporary key to [Email](yangyu.huang@microsoft.com) after receiving the validation set results.
+For API models, if OpenCompass updates the model interface, you can obtain the test set results by sending a temporary key to [Email](yangyu.huang@microsoft.com) after receiving the validation set results.
 
 
-## 3. What is the Difference between MMLU-CF and MMLU?
+## 4. What is the Difference between MMLU-CF and MMLU?
 MMLU focus on the breadth, reasoning without considering contamination prevention. We apply three decontamination rules to mitigate unintentional data leakage while collecting data from a broader domain. Meanwhile, our MMLU-CF benchmark maintains the test set closed-source to prevent malicious data leakage.
 
-[Fig1, Fig4, ]
+<p float="left">
+  <img src="./Figures/Fig_4.png" alt="Fig4" width="55%" />
+  <span style="display:inline-block; width: 10%;"></span>
+  <img src="./Figures/Fig_5.png" alt="Fig5" width="30%" />
+</p>
+
+
 
 | Model                           | MMLU 5-shot (%) | MMLU-CF 5-shot Test (%) | MMLU-CF 5-shot Validation (%) | 5-shot $\Delta$ (%) | MMLU-CF 0-shot Test (%) | MMLU-CF 0-shot Validation (%) | 0-shot $\Delta$ (%) |
 |----------------------------------|-----------------|--------------------------|------------------------------|----------------------|-------------------------|------------------------------|-----------------------|
@@ -90,15 +104,17 @@ MMLU focus on the breadth, reasoning without considering contamination preventio
 | Internlm-2-chat-1.8b   | 47.1  | 40.5                     | 39.4                         | +1.1                 | 41.2                    | 39.8                         | +1.4                  |
 | Qwen2-0.5B-instruct   | 37.9      | 38.3                     | 38.3                         | +0.0                 | 33.5                    | 33.5                         | +0.0                  |
 
-## 4. Properties of Partitioning Test and Validation Sets.
+## 5. Properties of Partitioning Test and Validation Sets.
 We partition the benchmark dataset into test and validation sets, then calculate the absolute score difference as $\Delta$ for LLMs, it not only helps prevent test set leakage but also offers the following benefits: Firstly, as shown in Table, before the validation set is publicly released, about 60\% of $\Delta$ values are less than 0.5, and 96\% of $\Delta$ values are below 1.0. This indicates that the evaluation results of LLMs are significantly consistent across the test and validation sets, demonstrating the effectiveness of the validation set in evaluating model generalization. Once the validation set is made public, potential data leakage can cause the models to overfit on the validation set, leading to an increase in $\Delta$ values. Thus, the design of $\Delta$ serves as a method to monitor whether benchmarks might be compromised. This approach helps ensure the fairness and integrity of the benchmarks, preventing models from exploiting leaked data to artificially enhance their performance.
 
-## 5. Data Construction Pipeline.
+## 6. Data Construction Pipeline.
+![Fig3](./Figures/Fig_3.png)
 The pipeline involves (1) MCQ Collection to gather a diverse set of questions; (2) MCQ Cleaning to ensure quality; (3) Difficulty Sampling to ensure an appropriate difficulty distribution for questions; (4) LLMs checking: The LLMs, including GPT-4o, Gemini, and Claude, are reviewing the accuracy and safety of the data; and (5) Contamination-Free Processing to prevent data leakage and maintain dataset purity. Ultimately, this process results in the MMLU-CF, consisting of 10,000 questions for the closed-source test set and 10,000 for the open-source validation set.
 
-## 6. Contact
-We have identified some mistakes in the dataset. If you come across any issues, please submit the corresponding question_id on the issue page, and we will address it promptly. Our team is dedicated to maintaining and improving this dataset over time to ensure its ongoing quality!
+## 7. Contact.
+There are a few mistakes in the dataset. If you encounter any issues with the validation set, please submit the corresponding question_id on the issue page, and we will address it as soon as possible. Additionally, we will review the test set. Our team is committed to continually maintaining and improving the dataset to ensure its long-term quality!
 
 For any inquiries or concerns, feel free to reach out to us via Github: @fistyee and @huangyangyu or [email](yangyu.huang@microsoft.com).
-## 7. Citation
+
+## 8. Citation.
 
