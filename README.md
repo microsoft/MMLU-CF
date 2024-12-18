@@ -1,7 +1,7 @@
 # MMLU-CF Dataset
 MMLU-CF is a contamination-free and more challenging multiple-choice question benchmark. This dataset contains 10K questions each for the validation set and test set, covering various disciplines.
 
-[Datasets](huggingface.com)|[Paper](arxiv.com)|[Github](github.com)
+[Paper](arxiv.com) | [Github](https://github.com/microsoft/MMLU-CF) | [Datasets](https://huggingface.co/datasets/microsoft/MMLU-CF)
 
 ## 1. The Contribution of MMLU-CF.
 
