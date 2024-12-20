@@ -55,59 +55,516 @@ MMLU focuses on the breadth and reasoning without considering contamination prev
 
 
 ## 4. Leaderboard
-| Model                           | MMLU  | MMLU-CF    | MMLU-CF |  MMLU-CF    | MMLU-CF   | MMLU-CF  |  MMLU-CF  
-|----------------------------------|:------:|:------:|:------:|:------:|:------:|:------:|:------:|
-|                         | 5-shot  |  5-shot Test  |   5-shot Validation  |    5-shot $\Delta$   |    0-shot  Test   |    0-shot  Validation  |   0-shot $\Delta$ |
-| **API**                          |                 |                          |                              |                      |                         |                              |                       |
-| GPT-4o      | 88.0            | 73.4                     | 73.4                         | +0.0                 | 71.9                    | 72.4                         | -0.5                  |
-| GPT-4-Turbo  | 86.5            | 70.4                     | 70.1                         | +0.3                 | 68.9                    | 68.7                         | +0.1                  |
-| GPT-4o-mini      | 81.8            | 65.5                     | 65.1                         | +0.4                 | 66.0                    | 65.3                         | +0.7                  |
-| Gemini-1.5-Flash  | 78.7      | 64.8                     | 64.9                         | -0.1                 | 56.7                    | 56.9                         | -0.2                  |
-| GPT-3.5-Turbo       | 71.4            | 58.2                     | 59.0                         | -0.8                 | 57.2                    | 58.1                         | -0.9                  |
-| **Large**                        |                 |                          |                              |                      |                         |                              |                       |
-| Qwen2.5-72B-instruct | 85.3          | 71.6                     | 71.3                         | +0.3                 | 70.6                    | 70.4                         | +0.2                  |
-| Llama-3-70B-instruct  | 82.0    | 68.9                     | 68.8                         | +0.1                 | 68.1                    | 67.4                         | +0.7                  |
-| Llama-3.3-70B-instruct  | 86.3    | 68.8                     | 67.8                         | +1.0                 | 67.6                    | 67.5                         | +0.1                  |
-| Llama-3.1-70B-instruct   | 86.0   | 68.7                     | 68.1                         | +0.6                 | 70.4                    | 69.7                         | +0.7                  |
-| Phi-3.5-MoE-instruct  | 78.9     | 64.6                     | 64.5                         | +0.1                 | 63.1                    | 62.1                         | +1.0                  |
-| Qwen2-72B-instruct   | 82.3       | 63.7                     | 64.3                         | -0.6                 | 62.4                    | 62.5                         | -0.1                  |
-| Mixtral-8x22B-instruct  | 76.2 | 62.8                     | 62.5                         | +0.3                 | 65.3                    | 64.8                         | +0.5                  |
-| Qwen1.5-72B-chat  | 75.6        | 59.8                     | 60.2                         | -0.4                 | 59.1                    | 59.6                         | -0.5                  |
-| Llama-2-70B-chat   | 68.9      | 52.2                     | 51.8                         | +0.4                 | 51.2                    | 50.9                         | +0.3                  |
-| **Medium**                        |                 |                          |                              |                      |                         |                              |                       |
-| Qwen2.5-32B-instruct   | 83.9          | 69.7                     | 68.8                         | +0.9                 | 68.9                    | 68.8                         | +0.1                  |
-| Phi-4-14B   | 84.8  | 67.8                     | 68.5                         | -0.7                 | 68.5                    | 69.4                         | -0.9                  |
-| Qwen2.5-14B-instruct | 79.9         | 66.4                     | 66.1                         | +0.3                 | 67.0                    | 66.0                         | +1.0                  |
-| Phi-3-medium-instruct  | 77.9    | 64.2                     | 64.2                         | +0.0                 | 62.5                    | 62.7                         | -0.2                  |
-| Gemma2-27B    | 75.2            | 63.9                     | 63.5                         | +0.4                 | 64.2                    | 64.0                         | +0.2                  |
-| Yi-1.5-34B-chat | 76.8          | 61.3                     | 60.5                         | +0.8                 | 60.6                    | 59.5                         | +1.1                  |
-| Mixtral-8x7B-instruct-v0.1  | 70.5 | 58.3                    | 57.1                         | -1.2                 | 58.9                    | 58.5                         | +0.4                  |
-| Deepseek-v2-lite-chat  | 55.7     | 49.3                     | 48.7                         | +0.6                 | 48.2                    | 47.7                         | +0.5                  |
-| Baichuan-2-13B-chat  | 57.3   | 48.3                     | 48.6                         | -0.3                 | 47.1                    | 48.1                         | -1.0                  |
-| Llama-2-13B-chat  | 54.8     | 42.8                     | 42.1                         | +0.7                 | 44.8                    | 44.6                         | +0.2                  |
-| **Small**                        |                 |                          |                              |                      |                         |                              |                       |
-| Qwen2.5-7B-instruct  | 75.4          | 61.3                     | 60.4                         | +0.9                 | 59.3                    | 58.6                         | +0.7                  |
-| Qwen2-7B-instruct | 70.5        | 58.1                     | 57.9                         | +0.2                 | 58.3                    | 57.4                         | +0.9                  |
-| Glm-4-9B-chat | 72.4         | 57.8                     | 57.9                         | -0.1                 | 58.6                    | 58.7                         | -0.1                  |
-| Internlm-2.5-7B-chat   | 72.8 | 57.3                     | 56.8                         | +0.5                 | 57.9                    | 56.9                         | +1.0                  |
-| Llama-3-8B-instruct  | 68.4    | 57.3                     | 56.5                         | +0.8                 | 56.4                    | 55.4                         | +1.0                  |
-| Llama-3.1-8B-instruct  | 68.1   | 57.1                     | 57.9                         | -0.8                 | 56.1                    | 56.1                         | +0.0                  |
-| Gemma-2-9B    | 71.3            | 53.7                     | 53.3                         | +0.4                 | 32.1                    | 31.2                         | +0.9                  |
-| Yi-1.5-6B-chat | 62.8            | 52.8                     | 51.4                         | +1.4                 | 52.2                    | 51.9                         | +0.3                  |
-| Mistral-7B-instruct-v0.3   | 60.3 | 50.7                     | 50.9                         | -0.2                 | 51.1                    | 50.9                         | +0.2                  |
-| Baichuan-2-7B-chat | 52.9   | 44.5                     | 43.9                         | +0.6                 | 43.9                    | 44.0                         | -0.1                  |
-| Llama-2-7B-chat   | 45.3    | 39.4                     | 38.5                         | +0.9                 | 41.9                    | 40.9                         | +1.0                  |
-| **Mini**                         |                 |                          |                              |                      |                         |                              |                       |
-| Phi-3-mini-instruct (3.8B)   | 70.9 | 57.9                     | 58.1                         | -0.2                 | 58.2                    | 57.5                         | +0.7                  |
-| Phi-3.5-mini-instruct (3.8B)   | 69.1 | 57.9                     | 57.4                         | +0.5                 | 58.3                    | 57.7                         | +0.6                  |
-| Qwen2.5-3B-instruct  | 64.4           | 55.9                     | 56.4                         | -0.5                 | 54.3                    | 53.9                         | +0.4                  |
-| Qwen2.5-1.5B-instruct | 50.7         | 51.2                     | 51.0                         | +0.2                 | 50.7                    | 50.4                         | +0.3                  |
-| Qwen2-1.5B-instruct   | 52.4      | 47.1                     | 47.5                         | -0.4                 | 45.2                    | 44.5                         | +0.7                  |
-| Gemma-2-2B  | 51.3            | 43.9                     | 42.4                         | +1.5                 | 30.5                    | 29.4                         | +0.9                  |
-| Qwen2.5-0.5B-instruct  | 24.1        | 41.9                     | 41.1                         | +0.8                 | 36.0                    | 34.9                         | +1.1                  |
-| Internlm-2-chat-1.8b   | 47.1  | 40.5                     | 39.4                         | +1.1                 | 41.2                    | 39.8                         | +1.4                  |
-| Qwen2-0.5B-instruct   | 37.9      | 38.3                     | 38.3                         | +0.0                 | 33.5                    | 33.5                         | +0.0                  |
-
+<table>
+  <thead>
+    <tr>
+      <th rowspan="2">Model</th>
+      <th colspan="1">MMLU </th>
+      <th colspan="6">MMLU-CF </th>
+    </tr>
+    <tr>
+      <th>5-shot   </th>
+      <th>5-shot Test   </th>
+      <th>5-shot Validation  </th>
+      <th>5-shot Δ   </th>
+      <th>0-shot Test   </th>
+      <th>0-shot Validation    </th>
+      <th>0-shot Δ    </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>API</strong></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>GPT-4o</td>
+      <td>88.0</td>
+      <td>73.4</td>
+      <td>73.4</td>
+      <td>+0.0</td>
+      <td>71.9</td>
+      <td>72.4</td>
+      <td>-0.5</td>
+    </tr>
+    <tr>
+      <td>GPT-4-Turbo</td>
+      <td>86.5</td>
+      <td>70.4</td>
+      <td>70.1</td>
+      <td>+0.3</td>
+      <td>68.9</td>
+      <td>68.7</td>
+      <td>+0.1</td>
+    </tr>
+    <tr>
+      <td>GPT-4o-mini</td>
+      <td>81.8</td>
+      <td>65.5</td>
+      <td>65.1</td>
+      <td>+0.4</td>
+      <td>66.0</td>
+      <td>65.3</td>
+      <td>+0.7</td>
+    </tr>
+    <tr>
+      <td>Gemini-1.5-Flash</td>
+      <td>78.7</td>
+      <td>64.8</td>
+      <td>64.9</td>
+      <td>-0.1</td>
+      <td>56.7</td>
+      <td>56.9</td>
+      <td>-0.2</td>
+    </tr>
+    <tr>
+      <td>GPT-3.5-Turbo</td>
+      <td>71.4</td>
+      <td>58.2</td>
+      <td>59.0</td>
+      <td>-0.8</td>
+      <td>57.2</td>
+      <td>58.1</td>
+      <td>-0.9</td>
+    </tr>
+    <tr>
+      <td><strong>Large</strong></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Qwen2.5-72B-instruct</td>
+      <td>85.3</td>
+      <td>71.6</td>
+      <td>71.3</td>
+      <td>+0.3</td>
+      <td>70.6</td>
+      <td>70.4</td>
+      <td>+0.2</td>
+    </tr>
+    <tr>
+      <td>Llama-3-70B-instruct</td>
+      <td>82.0</td>
+      <td>68.9</td>
+      <td>68.8</td>
+      <td>+0.1</td>
+      <td>68.1</td>
+      <td>67.4</td>
+      <td>+0.7</td>
+    </tr>
+    <tr>
+      <td>Llama-3.3-70B-instruct</td>
+      <td>86.3</td>
+      <td>68.8</td>
+      <td>67.8</td>
+      <td>+1.0</td>
+      <td>67.6</td>
+      <td>67.5</td>
+      <td>+0.1</td>
+    </tr>
+    <tr>
+      <td>Llama-3.1-70B-instruct</td>
+      <td>86.0</td>
+      <td>68.7</td>
+      <td>68.1</td>
+      <td>+0.6</td>
+      <td>70.4</td>
+      <td>69.7</td>
+      <td>+0.7</td>
+    </tr>
+    <tr>
+      <td>Phi-3.5-MoE-instruct</td>
+      <td>78.9</td>
+      <td>64.6</td>
+      <td>64.5</td>
+      <td>+0.1</td>
+      <td>63.1</td>
+      <td>62.1</td>
+      <td>+1.0</td>
+    </tr>
+    <tr>
+      <td>Qwen2-72B-instruct</td>
+      <td>82.3</td>
+      <td>63.7</td>
+      <td>64.3</td>
+      <td>-0.6</td>
+      <td>62.4</td>
+      <td>62.5</td>
+      <td>-0.1</td>
+    </tr>
+    <tr>
+      <td>Mixtral-8x22B-instruct</td>
+      <td>76.2</td>
+      <td>62.8</td>
+      <td>62.5</td>
+      <td>+0.3</td>
+      <td>65.3</td>
+      <td>64.8</td>
+      <td>+0.5</td>
+    </tr>
+    <tr>
+  <td>Qwen1.5-72B-chat</td>
+  <td>75.6</td>
+  <td>59.8</td>
+  <td>60.2</td>
+  <td>-0.4</td>
+  <td>59.1</td>
+  <td>59.6</td>
+  <td>-0.5</td>
+</tr>
+<tr>
+  <td>Llama-2-70B-chat</td>
+  <td>68.9</td>
+  <td>52.2</td>
+  <td>51.8</td>
+  <td>+0.4</td>
+  <td>51.2</td>
+  <td>50.9</td>
+  <td>+0.3</td>
+</tr>
+<tr>
+  <td><strong>Medium</strong></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>Qwen2.5-32B-instruct</td>
+  <td>83.9</td>
+  <td>69.7</td>
+  <td>68.8</td>
+  <td>+0.9</td>
+  <td>68.9</td>
+  <td>68.8</td>
+  <td>+0.1</td>
+</tr>
+<tr>
+  <td>Phi-4-14B</td>
+  <td>84.8</td>
+  <td>67.8</td>
+  <td>68.5</td>
+  <td>-0.7</td>
+  <td>68.5</td>
+  <td>69.4</td>
+  <td>-0.9</td>
+</tr>
+<tr>
+  <td>Qwen2.5-14B-instruct</td>
+  <td>79.9</td>
+  <td>66.4</td>
+  <td>66.1</td>
+  <td>+0.3</td>
+  <td>67.0</td>
+  <td>66.0</td>
+  <td>+1.0</td>
+</tr>
+<tr>
+  <td>Phi-3-medium-instruct</td>
+  <td>77.9</td>
+  <td>64.2</td>
+  <td>64.2</td>
+  <td>+0.0</td>
+  <td>62.5</td>
+  <td>62.7</td>
+  <td>-0.2</td>
+</tr>
+<tr>
+  <td>Gemma2-27B</td>
+  <td>75.2</td>
+  <td>63.9</td>
+  <td>63.5</td>
+  <td>+0.4</td>
+  <td>64.2</td>
+  <td>64.0</td>
+  <td>+0.2</td>
+</tr>
+<tr>
+  <td>Yi-1.5-34B-chat</td>
+  <td>76.8</td>
+  <td>61.3</td>
+  <td>60.5</td>
+  <td>+0.8</td>
+  <td>60.6</td>
+  <td>59.5</td>
+  <td>+1.1</td>
+</tr>
+<tr>
+  <td>Mixtral-8x7B-instruct-v0.1</td>
+  <td>70.5</td>
+  <td>58.3</td>
+  <td>57.1</td>
+  <td>-1.2</td>
+  <td>58.9</td>
+  <td>58.5</td>
+  <td>+0.4</td>
+</tr>
+<tr>
+  <td>Deepseek-v2-lite-chat</td>
+  <td>55.7</td>
+  <td>49.3</td>
+  <td>48.7</td>
+  <td>+0.6</td>
+  <td>48.2</td>
+  <td>47.7</td>
+  <td>+0.5</td>
+</tr>
+<tr>
+  <td>Baichuan-2-13B-chat</td>
+  <td>57.3</td>
+  <td>48.3</td>
+  <td>48.6</td>
+  <td>-0.3</td>
+  <td>47.1</td>
+  <td>48.1</td>
+  <td>-1.0</td>
+</tr>
+<tr>
+  <td>Llama-2-13B-chat</td>
+  <td>54.8</td>
+  <td>42.8</td>
+  <td>42.1</td>
+  <td>+0.7</td>
+  <td>44.8</td>
+  <td>44.6</td>
+  <td>+0.2</td>
+</tr>
+<tr>
+  <td><strong>Small</strong></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>Qwen2.5-7B-instruct</td>
+  <td>75.4</td>
+  <td>61.3</td>
+  <td>60.4</td>
+  <td>+0.9</td>
+  <td>59.3</td>
+  <td>58.6</td>
+  <td>+0.7</td>
+</tr>
+<tr>
+  <td>Qwen2-7B-instruct</td>
+  <td>70.5</td>
+  <td>58.1</td>
+  <td>57.9</td>
+  <td>+0.2</td>
+  <td>58.3</td>
+  <td>57.4</td>
+  <td>+0.9</td>
+</tr>
+<tr>
+  <td>Glm-4-9B-chat</td>
+  <td>72.4</td>
+  <td>57.8</td>
+  <td>57.9</td>
+  <td>-0.1</td>
+  <td>58.6</td>
+  <td>58.7</td>
+  <td>-0.1</td>
+</tr>
+<tr>
+  <td>Internlm-2.5-7B-chat</td>
+  <td>72.8</td>
+  <td>57.3</td>
+  <td>56.8</td>
+  <td>+0.5</td>
+  <td>57.9</td>
+  <td>56.9</td>
+  <td>+1.0</td>
+</tr>
+<tr>
+  <td>Llama-3-8B-instruct</td>
+  <td>68.4</td>
+  <td>57.3</td>
+  <td>56.5</td>
+  <td>+0.8</td>
+  <td>56.4</td>
+  <td>55.4</td>
+  <td>+1.0</td>
+</tr>
+<tr>
+  <td>Llama-3.1-8B-instruct</td>
+  <td>68.1</td>
+  <td>57.1</td>
+  <td>57.9</td>
+  <td>-0.8</td>
+  <td>56.1</td>
+  <td>56.1</td>
+  <td>+0.0</td>
+</tr>
+<tr>
+  <td>Gemma-2-9B</td>
+  <td>71.3</td>
+  <td>53.7</td>
+  <td>53.3</td>
+  <td>+0.4</td>
+  <td>32.1</td>
+  <td>31.2</td>
+  <td>+0.9</td>
+</tr>
+<tr>
+  <td>Yi-1.5-6B-chat</td>
+  <td>62.8</td>
+  <td>52.8</td>
+  <td>51.4</td>
+  <td>+1.4</td>
+  <td>52.2</td>
+  <td>51.9</td>
+  <td>+0.3</td>
+</tr>
+<tr>
+  <td>Mistral-7B-instruct-v0.3</td>
+  <td>60.3</td>
+  <td>50.7</td>
+  <td>50.9</td>
+  <td>-0.2</td>
+  <td>51.1</td>
+  <td>50.9</td>
+  <td>+0.2</td>
+</tr>
+<tr>
+  <td>Baichuan-2-7B-chat</td>
+  <td>52.9</td>
+  <td>44.5</td>
+  <td>43.9</td>
+  <td>+0.6</td>
+  <td>43.9</td>
+  <td>44.0</td>
+  <td>-0.1</td>
+</tr>
+<tr>
+  <td>Llama-2-7B-chat</td>
+  <td>45.3</td>
+  <td>39.4</td>
+  <td>38.5</td>
+  <td>+0.9</td>
+  <td>41.9</td>
+  <td>40.9</td>
+  <td>+1.0</td>
+</tr>
+<tr>
+  <td><strong>Mini</strong></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>Phi-3-mini-instruct (3.8B)</td>
+  <td>70.9</td>
+  <td>57.9</td>
+  <td>58.1</td>
+  <td>-0.2</td>
+  <td>58.2</td>
+  <td>57.5</td>
+  <td>+0.7</td>
+</tr>
+<tr>
+  <td>Phi-3.5-mini-instruct (3.8B)</td>
+  <td>69.1</td>
+  <td>57.9</td>
+  <td>57.4</td>
+  <td>+0.5</td>
+  <td>58.3</td>
+  <td>57.7</td>
+  <td>+0.6</td>
+</tr>
+<tr>
+  <td>Qwen2.5-3B-instruct</td>
+  <td>64.4</td>
+  <td>55.9</td>
+  <td>56.4</td>
+  <td>-0.5</td>
+  <td>54.3</td>
+  <td>53.9</td>
+  <td>+0.4</td>
+</tr>
+<tr>
+  <td>Qwen2.5-1.5B-instruct</td>
+  <td>50.7</td>
+  <td>51.2</td>
+  <td>51.0</td>
+  <td>+0.2</td>
+  <td>50.7</td>
+  <td>50.4</td>
+  <td>+0.3</td>
+</tr>
+<tr>
+  <td>Qwen2-1.5B-instruct</td>
+  <td>52.4</td>
+  <td>47.1</td>
+  <td>47.5</td>
+  <td>-0.4</td>
+  <td>45.2</td>
+  <td>44.5</td>
+  <td>+0.7</td>
+</tr>
+<tr>
+  <td>Gemma-2-2B</td>
+  <td>51.3</td>
+  <td>43.9</td>
+  <td>42.4</td>
+  <td>+1.5</td>
+  <td>30.5</td>
+  <td>29.4</td>
+  <td>+0.9</td>
+</tr>
+<tr>
+  <td>Qwen2.5-0.5B-instruct</td>
+  <td>24.1</td>
+  <td>41.9</td>
+  <td>41.1</td>
+  <td>+0.8</td>
+  <td>36.0</td>
+  <td>34.9</td>
+  <td>+1.1</td>
+</tr>
+<tr>
+  <td>Internlm-2-chat-1.8b</td>
+  <td>47.1</td>
+  <td>40.5</td>
+  <td>39.4</td>
+  <td>+1.1</td>
+  <td>41.2</td>
+  <td>39.8</td>
+  <td>+1.4</td>
+</tr>
+<tr>
+  <td>Qwen2-0.5B-instruct</td>
+  <td>37.9</td>
+  <td>38.3</td>
+  <td>38.3</td>
+  <td>+0.0</td>
+  <td>33.5</td>
+  <td>33.5</td>
+  <td>+0.0</td>
+</tr>
+  </tbody>
+</table>
 
 ## 5. Data Construction Pipeline
 ![Fig3](./Figures/Fig_3.png)
