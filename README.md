@@ -64,9 +64,9 @@ Example 2,
 MMLU focuses on the breadth and reasoning without considering contamination prevention. We apply three decontamination rules to mitigate unintentional data leakage while collecting data from a broader domain. Meanwhile, our MMLU-CF benchmark maintains the test set closed-source to prevent malicious data leakage.
 
 <p float="left">
-  <img src="./Figures/Fig_4.png" alt="Fig4" width="55%" />
+  <img src="./Figures/Fig_4.png" alt="Fig4" width="60%" />
   <span style="display:inline-block; width: 10%;"></span>
-  <img src="./Figures/Fig_5.png" alt="Fig5" width="30%" />
+  <img src="./Figures/Fig_5.png" alt="Fig5" width="26%" />
 </p>
 
 
