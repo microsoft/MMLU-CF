@@ -2,7 +2,7 @@
 
 <div align="center">
 
-![](https://img.shields.io/badge/Task-GeoMap-orange)
+![](https://img.shields.io/badge/Task-MMLU_CF-orange)
 ![](https://img.shields.io/badge/Data-Released-green)
 ![](https://img.shields.io/badge/Code_License-MIT-blue)
 
@@ -601,3 +601,7 @@ For any inquiries or concerns, feel free to reach out to us via Email: [Yangyu H
       url={https://arxiv.org/abs/2412.15194}, 
 }
 ```
+
+## 8. License
+This repository is licensed under the [MIT](https://github.com/microsoft/PEACE/blob/main/LICENSE) License.
+The validation dataset of MMLU-CF is subject to the [CDLA-2.0](https://cdla.dev/permissive-2-0/) License.
