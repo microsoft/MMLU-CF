@@ -587,7 +587,7 @@ MMLU focuses on the breadth and reasoning without considering contamination prev
 The pipeline involves (1) MCQ Collection to gather a diverse set of questions; (2) MCQ Cleaning to ensure quality; (3) Difficulty Sampling to ensure an appropriate difficulty distribution for questions; (4) LLMs checking: The LLMs, including GPT-4o, Gemini, and Claude, are reviewing the accuracy and safety of the data; and (5) Contamination-Free Processing to prevent data leakage and maintain dataset purity. Ultimately, this process results in the MMLU-CF, consisting of 10,000 questions for the closed-source test set and 10,000 for the open-source validation set.
 
 ## 6. Contact
-For any inquiries or concerns, feel free to reach out to us via Email: [Yangyu Huang](yanghuan@microsoft.com) and [Qihao Zhao](qhzhaoo@gmail.com).
+For any inquiries or concerns, feel free to reach out to us via Email: [Qihao Zhao](qhzhaoo@gmail.com) and [Yangyu Huang](yanghuan@microsoft.com).
 
 ## 7. Citation
 ```
