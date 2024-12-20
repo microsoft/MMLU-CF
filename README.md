@@ -1,7 +1,18 @@
-# MMLU-CF Dataset
-MMLU-CF is a contamination-free and more challenging multiple-choice question benchmark. This dataset contains 10K questions each for the validation set and test set, covering various disciplines.
+# MMLU-CF: A Contamination-free Multi-task Language Understanding Benchmark
 
-[Paper](https://arxiv.org/pdf/2412.15194) | [Github](https://github.com/microsoft/MMLU-CF) | [Datasets](https://huggingface.co/datasets/microsoft/MMLU-CF)
+<div align="center">
+
+![](https://img.shields.io/badge/Task-GeoMap-orange)
+![](https://img.shields.io/badge/Data-Released-green)
+![](https://img.shields.io/badge/Code_License-MIT-blue)
+
+</div>
+
+<p align="center">
+  <a href="https://arxiv.org/pdf/2412.15194"><b>[📜 Paper]</b></a> •
+  <a href="https://huggingface.co/datasets/microsoft/MMLU-CF"><b>[🤗 HF Dataset]</b></a> •
+  <a href="https://github.com/microsoft/MMLU-CF"><b>[🐱 GitHub]</b></a>
+</p>
 
 ## 📢 News and Updates
 [2024.12.01] 🔥We have initialized the repository.  
@@ -10,6 +21,9 @@ MMLU-CF is a contamination-free and more challenging multiple-choice question be
 
 
 ## 1. The Motivation of MMLU-CF
+
+<!-- MMLU-CF is a contamination-free and more challenging multiple-choice question benchmark. This dataset contains 10K questions each for the validation set and test set, covering various disciplines. -->
+
 - The open-source nature of these benchmarks and the broad sources of training data for LLMs have inevitably led to benchmark contamination, resulting in unreliable evaluation results. To alleviate this issue, we propose MMLU-CF.
 - (a) An instance of leakage in MMLU. When questions are used as prompt from the MMLU, certain LLMs, due to their memorization capabilities, directly provide **choices identical to the original ones**. (b) When questions are used as prompt from the MMLU-CF, LLMs only provide guessed choices.
 This indicates that the MMLU test set suffers from data contamination and memorization by some LLMs, while the proposed MMLU-CF avoids such leakage.
