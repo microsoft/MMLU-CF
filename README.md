@@ -55,8 +55,9 @@ MMLU focuses on the breadth and reasoning without considering contamination prev
 
 
 ## 4. Leaderboard
-| Model                           | MMLU 5-shot (%) | MMLU-CF 5-shot Test (%) | MMLU-CF 5-shot Validation (%) | 5-shot $\Delta$ (%) | MMLU-CF 0-shot Test (%) | MMLU-CF 0-shot Validation (%) | 0-shot $\Delta$ (%) |
-|----------------------------------|-----------------|--------------------------|------------------------------|----------------------|-------------------------|------------------------------|-----------------------|
+| Model                           | MMLU  | MMLU-CF    | MMLU-CF |  MMLU-CF    | MMLU-CF   | MMLU-CF  |  MMLU-CF  
+|----------------------------------|:------:|:------:|:------:|:------:|:------:|:------:|:------:|
+|                         | 5-shot  |  5-shot Test  |   5-shot Validation  |    5-shot $\Delta$   |    0-shot  Test   |    0-shot  Validation  |   0-shot $\Delta$ |
 | **API**                          |                 |                          |                              |                      |                         |                              |                       |
 | GPT-4o      | 88.0            | 73.4                     | 73.4                         | +0.0                 | 71.9                    | 72.4                         | -0.5                  |
 | GPT-4-Turbo  | 86.5            | 70.4                     | 70.1                         | +0.3                 | 68.9                    | 68.7                         | +0.1                  |
