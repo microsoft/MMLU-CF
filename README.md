@@ -43,7 +43,11 @@ This indicates that the MMLU test set suffers from data contamination and memori
 data
 └── mmlu_cf 
     ├── dev
+        ├── Biology_dev.csv
+        ├── ...
     └── val
+        ├── Biology_val.csv
+        ├── ...
 ```
   
   **Step 2**. **Test set evaluation**: With the validation results, submit a GitHub issue on the [MMLU-CF](https://github.com/) GitHub homepage to request the test set results. Please follow the format below:
