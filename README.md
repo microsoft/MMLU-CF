@@ -37,7 +37,14 @@ This indicates that the MMLU test set suffers from data contamination and memori
 
   #### (1) We perform automated testing only on Huggingface models. After following the steps outlined below and obtaining the validation set results from [OpenCompass](https://github.com/open-compass/opencompass), the test set results can then be accessed via GitHub Issues. 
   
-  **Step 1**. **Validation set evaluation**: Obtaining the validation results for your model using LLM evaluation tools, [OpenCompass](https://github.com/open-compass/opencompass). 
+  **Step 1**. **Validation set evaluation**: Obtaining the validation results for your model using LLM evaluation tools, [OpenCompass](https://github.com/open-compass/opencompass). The validation dataset download from [🤗 Huggingface](https://huggingface.co/datasets/microsoft/MMLU-CF). The data directory structure in the opencompass:
+
+```
+data
+└── mmlu_cf 
+    ├── dev
+    └── val
+```
   
   **Step 2**. **Test set evaluation**: With the validation results, submit a GitHub issue on the [MMLU-CF](https://github.com/) GitHub homepage to request the test set results. Please follow the format below:
 
