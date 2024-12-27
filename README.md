@@ -49,6 +49,13 @@ data
         ├── Biology_val.csv
         ├── ...
 ```
+After ensuring that OpenCompass is installed correctly according to the above steps and the datasets are prepared.
+For simple evaluation settings we recommend using CLI:
+
+```
+opencompass --models hf_internlm2_5_1_8b_chat --datasets mmlu_cf
+```
+
   
   **Step 2**. **Test set evaluation**: With the validation results, submit a GitHub issue on the [MMLU-CF](https://github.com/) GitHub homepage to request the test set results. Please follow the format below:
 
