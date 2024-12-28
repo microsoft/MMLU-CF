@@ -50,12 +50,12 @@ data
         ├── ...
 ```
 After ensuring that OpenCompass is installed correctly according to the above steps and the datasets are prepared.
-For simple evaluation 5-shot settings we recommend using CLI:
+For simple evaluation **5-shot** settings we recommend using CLI:
 
 ```
 opencompass --models hf_internlm2_5_1_8b_chat --datasets mmlu_cf_few_shot
 ```
-For simple evaluation 0-shot settings:
+For simple evaluation **0-shot** settings:
 
 ```
 opencompass --models hf_internlm2_5_1_8b_chat --datasets mmlu_cf_zero_shot
