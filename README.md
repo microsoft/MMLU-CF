@@ -53,12 +53,12 @@ After ensuring that OpenCompass is installed correctly according to the above st
 For simple evaluation **5-shot** settings we recommend using CLI:
 
 ```
-opencompass --models hf_internlm2_5_1_8b_chat --datasets mmlu_cf_few_shot
+opencompass --models hf_internlm2_5_1_8b_chat --datasets mmlu_cf_few_shot --summarizer mmlu_cf
 ```
 For simple evaluation **0-shot** settings:
 
 ```
-opencompass --models hf_internlm2_5_1_8b_chat --datasets mmlu_cf_zero_shot
+opencompass --models hf_internlm2_5_1_8b_chat --datasets mmlu_cf_zero_shot --summarizer mmlu_cf
 ```
   
   **Step 2**. **Test set evaluation**: With the validation results, submit a GitHub issue on the [MMLU-CF](https://github.com/) GitHub homepage to request the test set results. Please follow the format below:
