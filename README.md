@@ -18,6 +18,7 @@
 [2024.12.01] 🔥We have initialized the repository.  
 [2024.12.16] 🔥We have added the evaluation results of Phi-4-14B and Llama-3.3-70B-Instruct.  
 [2024.12.20] 🔥We have released the validation dataset of MMLU-CF.  
+[2025.1.9]   🔥[OpenCompass](https://github.com/open-compass/opencompass) now support the MMLU-CF. Feel free to give it a try!
 
 
 ## 1. The Motivation of MMLU-CF
@@ -37,25 +38,14 @@ This indicates that the MMLU test set suffers from data contamination and memori
 
   #### (1) We perform automated testing only on Huggingface models. After following the steps outlined below and obtaining the validation set results from [OpenCompass](https://github.com/open-compass/opencompass), the test set results can then be accessed via GitHub Issues. 
   
-  **Step 1**. **Validation set evaluation**: Obtaining the validation results for your model using LLM evaluation tools, [OpenCompass](https://github.com/open-compass/opencompass). The validation dataset download from [🤗 Huggingface](https://huggingface.co/datasets/microsoft/MMLU-CF). The data directory structure in the opencompass:
-
-```
-data
-└── mmlu_cf 
-    ├── dev
-        ├── Biology_dev.csv
-        ├── ...
-    └── val
-        ├── Biology_val.csv
-        ├── ...
-```
-After ensuring that OpenCompass is installed correctly according to the above steps and the datasets are prepared.
-For simple evaluation **5-shot** settings we recommend using CLI:
+  **Step 1**. **Validation set evaluation**: Obtaining the validation results for your model using LLM evaluation tools, [OpenCompass](https://github.com/open-compass/opencompass). After successfully installing OpenCompass,
+  
+For simple evaluation in the **5-shot** settings with Internlm 2.5, we recommend using CLI:
 
 ```
 opencompass --models hf_internlm2_5_1_8b_chat --datasets mmlu_cf_few_shot --summarizer mmlu_cf
 ```
-For simple evaluation **0-shot** settings:
+For simple evaluation in the **0-shot** settings:
 
 ```
 opencompass --models hf_internlm2_5_1_8b_chat --datasets mmlu_cf_zero_shot --summarizer mmlu_cf
