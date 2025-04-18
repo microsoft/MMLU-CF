@@ -1,4 +1,4 @@
-# A Contamination-free Multi-task Language Understanding Benchmark
+# MMLU-CF: A Contamination-free Multi-task Language Understanding Benchmark
 
 <p align="center">
  <img src="https://img.shields.io/badge/Task-MMLU_CF-orange" alt="Task" /> 
@@ -45,6 +45,7 @@ opencompass --models hf_internlm2_5_1_8b_chat --datasets mmlu_cf_few_shot --summ
 ```
 
 - For a **0-shot** evaluation with Internlm 2.5:
+
 ```
 opencompass --models hf_internlm2_5_1_8b_chat --datasets mmlu_cf_zero_shot --summarizer mmlu_cf
 ```
