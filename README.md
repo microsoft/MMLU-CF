@@ -1,12 +1,10 @@
-# MMLU-CF: A Contamination-free Multi-task Language Understanding Benchmark
+# A Contamination-free Multi-task Language Understanding Benchmark
 
-<div align="center">
-
-![](https://img.shields.io/badge/Task-MMLU_CF-orange)
-![](https://img.shields.io/badge/Data-Released-green)
-![](https://img.shields.io/badge/Code_License-MIT-blue)
-
-</div>
+<p align="center">
+ <img src="https://img.shields.io/badge/Task-MMLU_CF-orange" alt="Task" /> 
+ <img src="https://img.shields.io/badge/Data-Released-green" alt="Data" /> 
+ <img src="https://img.shields.io/badge/Code_License-MIT-blue" alt="Code" />
+</p>
 
 <p align="center">
   <a href="https://arxiv.org/pdf/2412.15194"><b>[📜 Paper]</b></a> •
@@ -36,9 +34,9 @@ This indicates that the MMLU test set suffers from data contamination and memori
 
 ## 2. How to Evaluate Your Models on the MMLU-CF Validation/Test Set
 
-  #### (1) We perform automated testing only on Huggingface models. After following the steps outlined below and obtaining the validation set results from [OpenCompass](https://github.com/open-compass/opencompass), the test set results can then be accessed via GitHub Issues. 
+#### (1) We perform automated testing only on Huggingface models. After following the steps outlined below and obtaining the validation set results from [OpenCompass](https://github.com/open-compass/opencompass), the test set results can then be accessed via GitHub Issues. 
   
-  **Step 1**. **Validation set evaluation**: Obtaining the validation results for your model using LLM evaluation tools, [OpenCompass](https://github.com/open-compass/opencompass). The validation data will be automatically loaded from [Hugging Face](https://huggingface.co/datasets/microsoft/MMLU-CF).
+**Step 1**. **Validation set evaluation**: Obtaining the validation results for your model using LLM evaluation tools, [OpenCompass](https://github.com/open-compass/opencompass). The validation data will be automatically loaded from [Hugging Face](https://huggingface.co/datasets/microsoft/MMLU-CF).
   
 - For a **5-shot** evaluation with Internlm 2.5:
 
@@ -51,7 +49,7 @@ opencompass --models hf_internlm2_5_1_8b_chat --datasets mmlu_cf_few_shot --summ
 opencompass --models hf_internlm2_5_1_8b_chat --datasets mmlu_cf_zero_shot --summarizer mmlu_cf
 ```
   
-  **Step 2**. **Test set evaluation**: With the validation results, submit a GitHub issue on the [MMLU-CF](https://github.com/) GitHub homepage to request the test set results. Please follow the format below:
+**Step 2**. **Test set evaluation**: With the validation results, submit a GitHub issue on the [MMLU-CF](https://github.com/) GitHub homepage to request the test set results. Please follow the format below:
 
 Example 1,
 ```
@@ -65,11 +63,11 @@ Example 2,
   <img src="./Figures/Fig_6.png" alt="Fig6" width="80%" style="display: block; margin: 0 auto;" />
 </p>
 
-  **Notably**:
+**Notably**:
    - Ensure you use the format with square brackets `[ ]` as shown. The model name **microsoft/phi-4** corresponds to the name on HuggingFace.
    - We will automatically submit your model. The time to receive the results depends on the number of models being evaluated, but it typically takes **1-2 weeks**.
 
-  #### (2) For API models, if OpenCompass updates the model interface, you can obtain the test set results by sending a temporary key to [Email](yangyu.huang@microsoft.com) after receiving the validation set results.
+#### (2) For API models, if OpenCompass updates the model interface, you can obtain the test set results by sending a temporary key to [Email](yangyu.huang@microsoft.com) after receiving the validation set results.
 
 
 ## 3. What is the Difference between MMLU-CF and MMLU
