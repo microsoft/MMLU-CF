@@ -16,7 +16,7 @@
 [2024.12.01] 🔥We have initialized the repository.  
 [2024.12.16] 🔥We have added the evaluation results of Phi-4-14B and Llama-3.3-70B-Instruct.  
 [2024.12.20] 🔥We have released the validation dataset of MMLU-CF.  
-[2025.1.9]   🔥[OpenCompass](https://github.com/open-compass/opencompass) now support the MMLU-CF. Feel free to give it a try!
+[2025.01.09] 🔥[OpenCompass](https://github.com/open-compass/opencompass) now support the MMLU-CF. Feel free to give it a try!
 
 
 ## 1. The Motivation of MMLU-CF
